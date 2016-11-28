@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link href="css/material.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- End Style Sheets -->
+
+	<!-- Start Content Area -->
+<div id="content" class="content single-template">
+		
+        <!-- Header Image -->
+	    <% if(  post.thumbnail && post.thumbnail.src && post.thumbnail.src.length ){ %>
+
+        <img class="post-thumbnail" src="<%= post.thumbnail.src %>" onerror="displayDefaultImage(this);" />
+        
+        <% if (post.thumbnail.caption) { %>
+            <div class="post-thumbnail-caption"><%= post.thumbnail.caption %></div>
+        <% } %>
+
+    <% } %>	
+    <!-- End Header Image -->
+    
+    
+	<!-- Start Title Area -->
+    <div class="post-title">
+
+        <% if ( post.subhead ) { %>
+
+            <div class="subhead"><%= post.subhead %></div>
+
+        <% } %>
+        
+        <h1>
+            <%= post.title %>
+        </h1>
+
+        <div class="post-meta">
+            By <span class="post-author"><%= post.author %></span><span class="post-publish-date"><%= getCustomDate(post.date) %></span>
+            <div id="tt2" class=" icon material-icons portfolio-share-btn">share</div>
+                        <div class="mdl-tooltip" for="tt2">
+                            Share via social media
+                        </div>
+        </div>
+	</div>
+        
+
+    <!-- End Title Area -->
+            
+    <div id="single-content" class="single-content">
+
+            <%= post.content %>
+
+	</div>
+    
+</div>
+<!-- End Content Area -->

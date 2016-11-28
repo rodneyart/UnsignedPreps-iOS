@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link href="css/material.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- End Style Sheets -->
+
+	<!-- Start Menu Logo -->
+<center><img src="http://app.unsignedpreps.org/wp-content/uploads/2016/11/up-logo-b-h-1.png" width="100%"></center>
+<!-- End MEnu Logo -->
+
+	<!-- Start Menu List Items -->
+
+<ul id="menu-items" class="menu-items" style="display:none">
+
+    <% if(menu_items.length){ %>
+
+        <% _.each( menu_items, function( menu_item ){ %>
+
+  <li class="has-ripple-feedback"><a href="<%= menu_item.link %>"><%= menu_item.label %></a></li>
+  
+
+        <% }) %>
+
+    <% } %>
+</ul>
+<div><center>
+  <p style="color: rgba(153,153,153,0.9)">Version 1.0.0 Build 18</p>
+</center></div>
+	<!-- End Menu List Items -->

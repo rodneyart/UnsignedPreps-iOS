@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link href="css/material.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- End Style Sheets -->
+
+
+	<!-- Start Content Area -->
+  <div id="content" class="content list-template">
+    
+	<% if(posts.length){ %>
+
+		<% _.each( posts, function( post ){ %>
+
+			<div class="content-item has-ripple-feedback">
+
+                    <% if ( post.subhead ) { %>
+
+                        <div class="subhead"><%= post.subhead %></div>
+
+                    <% } %>
+
+      <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
+       <div class="mdl-card__media has-ripple-feedback">
+           <a href="<%= TemplateTags.getPostLink(post.id) %>">
+           <% if(  post.thumbnail && post.thumbnail.src && post.thumbnail.src.length ){ %>
+            <img class="article-image" src="<%= post.thumbnail.src %>" border="0" onerror="displayDefaultImage(this);" /></a>
+         </div>
+                    <div class="mdl-card__title">
+                        <h2><%= post.title %></h2>
+                    </div>
+       <div class="mdl-card__supporting-text no-bottom-padding">
+                        <small class="small"><%= TemplateTags.formatDate(post.date,'m/d/Y') %></small>
+                        <div id="tt2" class="icon material-icons portfolio-share-btn ">share</div>
+                        <div class="mdl-tooltip" for="tt2">
+                            Share via social media
+                        </div>
+                    </div>
+                </div>
+
+                    <% } %>	
+			</div>
+
+		<% }); %>
+        
+
+        <% if( TemplateTags.displayGetMoreLink() ){ %>
+			<div class="get-more-button-wrapper">
+                <button type="button" id="get-more-button" class="get-more-button has-ripple-feedback ripple-small">More (<%= TemplateTags.getMoreLinkNbLeft() %>)</button>
+            
+            </div>
+		<% } %>
+            
+	<% }else{ %>
+		<div class='content-message'>No post found</div>
+	<% } %>
+        
+</div>         
+     <!-- Ending Content Area -->
+     
+     
